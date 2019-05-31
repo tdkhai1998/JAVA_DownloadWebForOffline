@@ -1,0 +1,22 @@
+﻿Các kĩ thuật sử dụng:
+Sử dụjng jsoup để get Doc(html)
+Dùng buffer để ghi doc xuống.
+Sử dụng đa Lufồng multithread:
+ mỗi lần chạy 5 luồfng down 5 page về cùng lúc.
+	Trong mỗi luồng tải page về có 5 luồng để tải các file hìfnh ảnh, js, css,..	
+	=> 25 luồfng chạy 1 lúc.
+Sử dụng threadpool để giới hạn số luồng chạy.
+Sử dụng queue <có đồng bộ> LinkedBlockingQueue để giữ cái link page cần tảir. trong luồng tải
+page ta tìfm kiếm các link con rồi add vô quêue.
+
+Số page quá lớn, nên em đã giới hạn lại số page.
+Đây là đa luông tải file của em, số luồfng là 5;
+
+Đây là code sử lí đad luồng, khi nào list còn link sẽ tạo thread để tải, <5 luồngf>
+Đơợi cho các luồngf tải xong, tạoj thêm 5 luồnfg mơới để tại
+Tảir đến khi nào list rỗnxg. vì là queue có đồnfg bộ, trong lúc tải t add thêm cái link con vào
+quá trìfnh tải 200
+
+link Youtube: https://youtu.be/Iwiev7Q4nJk
+Điểm tự đánh giá:  8/10
+EM cám ơn.
